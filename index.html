@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Card Creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="recipeForm" class="recipe-form">
+            <div class="form-section">
+                <h3>Recipe Details</h3>
+                <div class="form-group">
+                    <label for="recipeTitle">Recipe Title</label>
+                    <input type="text" id="recipeTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="recipeImage">Image URL</label>
+                    <input type="url" id="recipeImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Dessert">Dessert</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="prepTime">Prep Time (minutes)</label>
+                    <input type="number" id="prepTime" required min="0">
+                </div>
+                <div class="form-group">
+                    <label for="cookTime">Cook Time (minutes)</label>
+                    <input type="number" id="cookTime" required min="0">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Ingredients</h3>
+                <div id="ingredientsList"></div>
+                <div class="bulk-input">
+                    <label for="bulkIngredients">Bulk Add Ingredients (one per line)</label>
+                    <textarea id="bulkIngredients" placeholder="1 cup flour&#10;2 eggs&#10;1/2 cup sugar"></textarea>
+                    <button type="button" id="addBulkIngredients" class="btn-secondary">Add Bulk Ingredients</button>
+                </div>
+                <button type="button" id="addIngredient" class="btn-secondary">Add Single Ingredient</button>
+            </div>
+
+            <div class="form-section">
+                <h3>Instructions</h3>
+                <div id="instructionsList"></div>
+                <div class="bulk-input">
+                    <label for="bulkInstructions">Bulk Add Instructions (one per line)</label>
+                    <textarea id="bulkInstructions" placeholder="Preheat oven to 350°F&#10;Mix dry ingredients&#10;Add wet ingredients"></textarea>
+                    <button type="button" id="addBulkInstructions" class="btn-secondary">Add Bulk Instructions</button>
+                </div>
+                <button type="button" id="addInstruction" class="btn-secondary">Add Single Instruction</button>
+            </div>
+
+            <div class="form-section">
+                <h3>Nutrition Information</h3>
+                <div class="form-group">
+                    <label for="calories">Calories</label>
+                    <input type="number" id="calories" required min="0">
+                </div>
+                <div class="form-group">
+                    <label for="protein">Protein (g)</label>
+                    <input type="number" id="protein" required min="0">
+                </div>
+                <div class="form-group">
+                    <label for="fiber">Fiber (g)</label>
+                    <input type="number" id="fiber" required min="0">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary">Create Recipe Card</button>
+        </form>
+
+        <div class="recipe-output">
+            <button id="copyHtml" class="btn-copy" title="Copy HTML"><i class="fas fa-code"></i> Copy HTML</button>
+            <div id="recipeCard"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
